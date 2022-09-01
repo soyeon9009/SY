@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/QnA/create}" method="post">
+        <table th:align="center" border="1" th:cellpadding ="0" th:cellspacing="0">
+            <tr>
+                <td bgcolor="#808080" th:text="고유번호" width="80"></td>
+                <td><input name="id" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td bgcolor="#808080" th:text="제목"></td>
+                <td><input name="subject" type="text" size="10"></td>
+            </tr>
+            <tr>
+                <td bgcolor="#808080" th:text="내용"></td>
+                <td><textarea name="content" id="content" rows="15"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="등록">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

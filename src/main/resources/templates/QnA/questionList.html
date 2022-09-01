@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <title>잘문하기</title>
+</head>
+<body>
+    <div class="container my-3">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성일시</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="question,loop : ${questionList}">
+                    <td th:text="${loop.count}"></td>
+    <!--                <td>-->
+    <!--                    <a th:href="@{/QnA/detail(id=${question.id})}">-->
+    <!--                        <span th:text="${question.subject}"></span>-->
+    <!--                    </a>-->
+    <!--                </td>-->
+                    <td>
+                        <a th:href="@{|/QnA/detail/${question.id}|}" th:text="${question.subject}"></a>
+                    </td>
+                    <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
