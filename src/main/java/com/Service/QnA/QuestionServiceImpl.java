@@ -1,5 +1,6 @@
 package com.Service.QnA;
 
+import com.Entity.QnA.Answer;
 import com.Entity.QnA.Question;
 import com.Exception.DataNotFoundException;
 import com.Repository.QnA.QuestionRepository;
@@ -35,6 +36,10 @@ public class QuestionServiceImpl implements QuestionService {
 //            throw new DataNotFoundException("question not found");
 //
 //        }
+        Question question = questionRepository.findById(id).get();
+        for(Answer a : question.getAnswerList()) {
+            System.out.println(a.getContent());
+        }
         return questionRepository.findById(id).get();
 
     }
